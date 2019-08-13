@@ -3,7 +3,7 @@ Based on Azerothcore v2.0.0 and authorized by saltyzero@foxmail.com I'm intended
     
 ## Description:
 >* The master branch is x64 version with mariadb_10.4.2_x64 and openssl_1.1.1c_x64. No x86 version anymore.
->*. Some private codes will be just obtained from contributions, but free to use all functions.
+>* Some private codes will be just obtained from contributions, but free to use all functions.
 
 ## Upcoming:   
 >* v1.3 will add some playable functions.
