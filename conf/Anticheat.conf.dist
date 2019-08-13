@@ -1,0 +1,32 @@
+[worldserver]
+#
+###################################################################################################
+
+###################################################################################################
+#   ANTICHEAT MODULE
+#
+#     Anticheat.Enable
+#       Description: Enables or disables the Anticheat System functionality
+#       Default:     1 - (Enabled)
+#                    0 - (Disabled)
+
+Anticheat.Enabled = 1
+
+#     Anticheat.Detect
+#       Description: All detections will run expect ClimbHackDetection is disabled by default.
+#       Default:    1 - (Enabled)
+#                   0 - (Disabled)
+
+#Anticheat.DetectFlyHack
+#Anticheat.DetectWaterWalkHack
+#Anticheat.DetectJumpHack
+#Anticheat.DetectTelePlaneHack
+#Anticheat.DetectSpeedHack
+Anticheat.DetectClimbHack = 0
+
+#     Anticheat.Deal
+#       Description: Kick him by default or ignore him and you can deal with him by Misc.log.
+#       Default:    1 - (Kick)
+#                   0 - (Ignore)
+
+Anticheat.Kick = 0
