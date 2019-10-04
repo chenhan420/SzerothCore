@@ -37,6 +37,6 @@ protected:
     GuildContainer GuildStore;
 };
 
-#define sGuildMgr getMgr<GuildMgr, ACE_Null_Mutex>()
+#define sGuildMgr GetMgr<GuildMgr, ACE_Null_Mutex>()
 
 #endif

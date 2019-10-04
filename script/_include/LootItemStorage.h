@@ -51,5 +51,5 @@ class LootItemStorage
         LootItemContainer lootItemStore;
 };
 
-#define sLootItemStorage getMgr<LootItemStorage, ACE_Thread_Mutex>()
+#define sLootItemStorage GetMgr<LootItemStorage, ACE_Thread_Mutex>()
 #endif

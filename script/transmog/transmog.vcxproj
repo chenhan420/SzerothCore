@@ -1,76 +1,75 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="RelWithDebInfo|x64">
-      <Configuration>RelWithDebInfo</Configuration>
-      <Platform>x64</Platform>
-    </ProjectConfiguration>
-  </ItemGroup>
-  <PropertyGroup Label="Globals">
-    <Platform>x64</Platform>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
-    <ProjectGuid>{E4B93381-277D-4B5A-A6D4-BA016526840A}</ProjectGuid>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
-    <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
-  </PropertyGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
-  <ImportGroup Label="ExtensionSettings">
-  </ImportGroup>
-  <ImportGroup Label="Shared">
-  </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="PropertySheets">
-    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-  </ImportGroup>
-  <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
-    <LibraryPath>$(ProjectDir)..\_lib\;$(LibraryPath)</LibraryPath>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
-    <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
-      <SDLCheck>
-      </SDLCheck>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <CompileAs>CompileAsCpp</CompileAs>
-      <DisableSpecificWarnings>4996;4355;4244;4985;4267;4619</DisableSpecificWarnings>
-      <TreatSpecificWarningsAsErrors>4263;4264</TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\..\script\_include;$(ProjectDir)..\..\script\_include\common;$(ProjectDir)..\..\script\_include\common\Collision;$(ProjectDir)..\..\script\_include\common\Database;$(ProjectDir)..\..\script\_include\common\DataStores;$(ProjectDir)..\..\script\_include\common\Dynamic;$(ProjectDir)..\..\script\_include\common\Packets;$(ProjectDir)..\..\script\_include\common\Threading;$(ProjectDir)..\..\script\_include\common\Utilities;$(ProjectDir)..\..\script\_include\Detour;$(ProjectDir)..\..\script\_include\Recast;$(ProjectDir)..\..\script\_include\mariadb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>%(AdditionalOptions) /Zm500 /utf-8</AdditionalOptions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CONF_DIR="conf";_WIN64;MARIADB;_module=extern "C" _declspec(dllexport);_interface= _declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions>
-    </ClCompile>
-    <Link>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;ace.dll;worldserver.dll</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <SubSystem>Console</SubSystem>
-    </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
-    <PostBuildEvent>
-      <Command>xcopy /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)..\" 
-if exist conf\*.conf.dist xcopy /Y "$(ProjectDir)conf\*.dist" "$(ProjectDir)..\..\conf\"</Command>
-    </PostBuildEvent>
-  </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="src\*.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\*.cpp" />
-  </ItemGroup>
-  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
-  <ImportGroup Label="ExtensionTargets">
-  </ImportGroup>
+<?xml version="1.0" encoding="utf-8"?> 
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"> 
+ <ItemGroup Label="ProjectConfigurations"> 
+   <ProjectConfiguration Include="RelWithDebInfo|x64"> 
+     <Configuration>RelWithDebInfo</Configuration> 
+     <Platform>x64</Platform> 
+   </ProjectConfiguration> 
+ </ItemGroup> 
+ <PropertyGroup Label="Globals"> 
+ <Platform>x64</Platform> 
+   <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion> 
+ </PropertyGroup> 
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" /> 
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration"> 
+   <ConfigurationType>DynamicLibrary</ConfigurationType> 
+   <UseDebugLibraries>true</UseDebugLibraries> 
+   <PlatformToolset>v141</PlatformToolset> 
+   <CharacterSet>MultiByte</CharacterSet> 
+ </PropertyGroup> 
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" /> 
+ <ImportGroup Label="ExtensionSettings"> 
+ </ImportGroup> 
+ <ImportGroup Label="Shared"> 
+ </ImportGroup> 
+ <ImportGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="PropertySheets"> 
+   <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" /> 
+ </ImportGroup> 
+ <PropertyGroup Label="UserMacros" /> 
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> 
+   <LibraryPath>$(ProjectDir)..\_lib\;$(LibraryPath)</LibraryPath> 
+ </PropertyGroup> 
+ <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> 
+   <ClCompile> 
+     <WarningLevel>Level3</WarningLevel> 
+     <Optimization>MaxSpeed</Optimization> 
+     <SDLCheck> 
+     </SDLCheck> 
+     <DebugInformationFormat>ProgramDatabase</DebugInformationFormat> 
+     <MultiProcessorCompilation>true</MultiProcessorCompilation> 
+     <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion> 
+     <BasicRuntimeChecks>Default</BasicRuntimeChecks> 
+     <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary> 
+     <RuntimeTypeInfo>true</RuntimeTypeInfo> 
+     <CompileAs>CompileAsCpp</CompileAs> 
+     <DisableSpecificWarnings>4996;4355;4244;4985;4267;4619</DisableSpecificWarnings> 
+     <TreatSpecificWarningsAsErrors>4263;4264</TreatSpecificWarningsAsErrors> 
+     <AdditionalIncludeDirectories>$(ProjectDir)..\..\script\_include;$(ProjectDir)..\..\script\_include\common;$(ProjectDir)..\..\script\_include\common\Collision;$(ProjectDir)..\..\script\_include\common\Database;$(ProjectDir)..\..\script\_include\common\DataStores;$(ProjectDir)..\..\script\_include\common\Dynamic;$(ProjectDir)..\..\script\_include\common\Packets;$(ProjectDir)..\..\script\_include\common\Threading;$(ProjectDir)..\..\script\_include\common\Utilities;$(ProjectDir)..\..\script\_include\Detour;$(ProjectDir)..\..\script\_include\Recast;$(ProjectDir)..\..\script\_include\mariadb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories> 
+     <AdditionalOptions>%(AdditionalOptions) /Zm500 /utf-8</AdditionalOptions> 
+     <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CONF_DIR="conf";_WIN64;MARIADB;_module=extern "C" _declspec(dllexport);_interface= _declspec(dllimport);%(PreprocessorDefinitions)</PreprocessorDefinitions> 
+   </ClCompile> 
+   <Link> 
+     <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories> 
+     <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;ace.dll;worldserver.dll</AdditionalDependencies> 
+     <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries> 
+     <GenerateDebugInformation>true</GenerateDebugInformation> 
+     <SubSystem>Console</SubSystem> 
+   </Link> 
+   <ProjectReference> 
+     <LinkLibraryDependencies>false</LinkLibraryDependencies> 
+   </ProjectReference> 
+   <PostBuildEvent> 
+     <Command>xcopy /Y "$(OutDir)$(TargetFileName)" "$(ProjectDir)..\" 
+if exist conf\*.conf.dist xcopy /Y "$(ProjectDir)conf\*.dist" "$(ProjectDir)..\..\conf\"</Command> 
+   </PostBuildEvent> 
+ </ItemDefinitionGroup> 
+ <ItemGroup> 
+   <ClInclude Include="src\*.h" /> 
+ </ItemGroup> 
+ <ItemGroup> 
+   <ClCompile Include="src\*.cpp" /> 
+ </ItemGroup> 
+ <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" /> 
+ <ImportGroup Label="ExtensionTargets"> 
+ </ImportGroup> 
 </Project>

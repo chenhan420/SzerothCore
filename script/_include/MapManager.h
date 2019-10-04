@@ -140,5 +140,5 @@ class MapManager
         uint32 _nextInstanceId;
         MapUpdater m_updater;
 };
-#define sMapMgr getMgr<MapManager, ACE_Thread_Mutex>()
+#define sMapMgr GetMgr<MapManager, ACE_Thread_Mutex>()
 #endif

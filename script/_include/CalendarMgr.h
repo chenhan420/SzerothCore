@@ -318,6 +318,6 @@ class CalendarMgr
         void SendPacketToAllEventRelatives(WorldPacket packet, CalendarEvent const& calendarEvent);
 };
 
-#define sCalendarMgr getMgr<CalendarMgr, ACE_Null_Mutex>()
+#define sCalendarMgr GetMgr<CalendarMgr, ACE_Null_Mutex>()
 
 #endif

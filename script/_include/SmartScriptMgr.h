@@ -1792,6 +1792,6 @@ class SmartAIMgr
         //bool IsTextValid(SmartScriptHolder const& e, uint32 id);
 };
 
-#define sSmartScriptMgr getMgr<SmartAIMgr, ACE_Null_Mutex>()
-#define sSmartWaypointMgr getMgr<SmartWaypointMgr, ACE_Null_Mutex>()
+#define sSmartScriptMgr GetMgr<SmartAIMgr, ACE_Null_Mutex>()
+#define sSmartWaypointMgr GetMgr<SmartWaypointMgr, ACE_Null_Mutex>()
 #endif

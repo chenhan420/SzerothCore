@@ -26,7 +26,7 @@ class Master
         void ClearOnlineAccounts();
 };
 
-#define sMaster getMgr<Master, ACE_Null_Mutex>()
+#define sMaster GetMgr<Master, ACE_Null_Mutex>()
 
 #endif
 

@@ -388,6 +388,6 @@ class AchievementGlobalMgr
         std::map<uint32, AchievementCriteriaEntryList> m_AchievementCriteriasByCondition[ACHIEVEMENT_CRITERIA_CONDITION_TOTAL];
 };
 
-#define sAchievementMgr getMgr<AchievementGlobalMgr>()
+#define sAchievementMgr GetMgr<AchievementGlobalMgr>()
 
 #endif

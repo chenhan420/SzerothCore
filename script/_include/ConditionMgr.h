@@ -271,6 +271,6 @@ class ConditionMgr
         SmartEventConditionContainer      SmartEventConditionStore;
 };
 
-#define sConditionMgr getMgr<ConditionMgr, ACE_Null_Mutex>()
+#define sConditionMgr GetMgr<ConditionMgr, ACE_Null_Mutex>()
 
 #endif

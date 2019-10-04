@@ -11,18 +11,19 @@
 #                    0 - (Disabled)
 
 Anticheat.Enabled = 1
+Anticheat.GM = 0
 
 #     Anticheat.Detect
-#       Description: All detections will run expect ClimbHackDetection is disabled by default.
-#       Default:    1 - (Enabled)
+#       Description: I have not rewritten jump and climb detection yet. The low means more strict detection but may mistake. 0 will not detect.
+#       Default:    n - (Enabled)
 #                   0 - (Disabled)
 
-#Anticheat.DetectFlyHack
-#Anticheat.DetectWaterWalkHack
-#Anticheat.DetectJumpHack
-#Anticheat.DetectTelePlaneHack
-#Anticheat.DetectSpeedHack
-Anticheat.DetectClimbHack = 0
+Anticheat.DetectSpeedHack = 8
+Anticheat.DetectFlyHack = 2
+Anticheat.DetectWaterWalkHack = 12
+Anticheat.DetectJumpHack = 0
+Anticheat.DetectTeleHack = 1
+Anticheat.DeteckClimbHack = 0
 
 #     Anticheat.Deal
 #       Description: Kick him by default or ignore him and you can deal with him by Misc.log.

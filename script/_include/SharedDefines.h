@@ -2605,6 +2605,8 @@ enum CreatureEliteType
     CREATURE_UNKNOWN               = 5                      // found in 2.2.3 for 2 mobs
 };
 
+#define MAX_CREATURE_RANK 6
+
 // values based at Holidays.dbc
 enum HolidayIds
 {

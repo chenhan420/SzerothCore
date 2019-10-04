@@ -69,6 +69,6 @@ class CreatureGroup
         bool m_Formed;
 };
 
-#define sFormationMgr getMgr<FormationMgr, ACE_Null_Mutex>()
+#define sFormationMgr GetMgr<FormationMgr, ACE_Null_Mutex>()
 
 #endif

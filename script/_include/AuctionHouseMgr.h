@@ -184,6 +184,6 @@ class AuctionHouseMgr
         ItemMap mAitems;
 };
 
-#define sAuctionMgr getMgr<AuctionHouseMgr, ACE_Null_Mutex>()
+#define sAuctionMgr GetMgr<AuctionHouseMgr, ACE_Null_Mutex>()
 
 #endif

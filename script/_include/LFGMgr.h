@@ -590,5 +590,5 @@ class LFGMgr
 
 } // namespace lfg
 
-#define sLFGMgr getMgr<lfg::LFGMgr, ACE_Null_Mutex>()
+#define sLFGMgr GetMgr<lfg::LFGMgr, ACE_Null_Mutex>()
 #endif

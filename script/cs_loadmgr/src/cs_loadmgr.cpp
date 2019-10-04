@@ -1,6 +1,10 @@
 // 默认编码 utf-8 sb微软
 
-#include "cs_loadmgr.h" 
+#include "cs_loadmgr.h"
+//#include <thread>
+//#include <future>
+//#include <chrono>
+#include "shellapi.h"
 
 class cs_loadmgr : public CommandScript
 {
@@ -37,7 +41,53 @@ public:
 		if (!*args)
 			return false;
 
-		return sScriptMgr->FreeScript(args) && sScriptMgr->LoadScript(args);
+		if (!sScriptMgr->FreeScript(args))
+			return false;
+
+		sLog->outString("开始");
+		std::string cmd = std::string("") + "pushd script && build_all.bat " + args + " < nul && popd";
+
+		//SHELLEXECUTEINFO ShExecInfo = { 0 };
+		//ShExecInfo.cbSize = sizeof(SHELLEXECUTEINFO);
+		//ShExecInfo.fMask = SEE_MASK_INVOKEIDLIST;
+		//ShExecInfo.hwnd = NULL;
+		//ShExecInfo.lpVerb = "properties";
+		//ShExecInfo.lpFile = "cmd.exe"; //can be a file as well
+		//ShExecInfo.lpParameters = cmd.c_str();
+		//ShExecInfo.lpDirectory = NULL;
+		//ShExecInfo.nShow = SW_SHOW;
+		//ShExecInfo.hInstApp = NULL;
+		//ShellExecuteExA(&ShExecInfo);
+
+		//std::future<int> right = std::async(std::launch::async, [cmd, args]()
+		//{
+		//	int right = 0;
+
+		//	if (right == 0)
+		//		sScriptMgr->LoadScript(args);
+
+		//	sLog->outString("结束");
+		//	_for (i, 0, 500000)
+		//	{
+		//		right++;
+		//		sLog->outString("%d", right);
+		//	}
+
+		//	return right;
+		//});
+
+		sLog->outString("等前");
+		//right.wait();
+		//
+		//if (right.get() == -1)
+		//	return false;
+
+		//if (system(cmd.c_str()) == -1)
+		//	return false;
+
+		sLog->outString("等后");
+		//return sScriptMgr->LoadScript(args);
+		return true;
 	}
 
 	static bool HandleFreeDLLCommand(ChatHandler* handler, char const*  args)

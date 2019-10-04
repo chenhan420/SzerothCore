@@ -133,6 +133,6 @@ class SocialMgr
         SocialMap m_socialMap;
 };
 
-#define sSocialMgr getMgr<SocialMgr, ACE_Null_Mutex>()
+#define sSocialMgr GetMgr<SocialMgr, ACE_Null_Mutex>()
 #endif
 

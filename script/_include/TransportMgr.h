@@ -148,6 +148,6 @@ class TransportMgr
         TransportAnimationContainer _transportAnimations;
 };
 
-#define sTransportMgr getMgr<TransportMgr, ACE_Thread_Mutex>()
+#define sTransportMgr GetMgr<TransportMgr, ACE_Thread_Mutex>()
 
 #endif // TRANSPORTMGR_H

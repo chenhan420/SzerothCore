@@ -193,7 +193,7 @@ class Log
         DebugLogFilters m_DebugLogMask;
 };
 
-#define sLog getMgr<Log, ACE_Thread_Mutex>()
+#define sLog GetMgr<Log, ACE_Thread_Mutex>()
 
 #endif
 

@@ -65,7 +65,7 @@ namespace ACE
  * ACE_Message_Block objects. @sa ACE_Message_Block.
  */
 template <ACE_SYNCH_DECL, class TIME_POLICY = ACE_System_Time_Policy>
-class ACE_Message_Queue : public ACE_Message_Queue_Base
+class __declspec(dllimport) ACE_Message_Queue : public ACE_Message_Queue_Base
 {
 public:
   friend class ACE_Message_Queue_Iterator<ACE_SYNCH_USE, TIME_POLICY>;
@@ -1579,7 +1579,7 @@ protected:
 ACE_END_VERSIONED_NAMESPACE_DECL
 
 #if defined (ACE_TEMPLATES_REQUIRE_SOURCE)
-#include "ace/Message_Queue_T.cpp"
+
 #endif /* ACE_TEMPLATES_REQUIRE_SOURCE */
 
 #if defined (ACE_TEMPLATES_REQUIRE_PRAGMA)

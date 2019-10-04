@@ -42,7 +42,17 @@ enum TransmogTrinityStrings // Language.h might have same entries, appears when 
 
 class Transmogrification
 {
+private:
+	Transmogrification() {}
+	~Transmogrification() {}
+
 public:
+	static Transmogrification* instance()
+	{
+		static Transmogrification instance;
+		return &instance;
+	}
+
     typedef UNORDERED_MAP<uint64, uint64> transmogData;
     typedef UNORDERED_MAP<uint64, transmogData> transmogMap;
     transmogMap entryMap; // entryMap[pGUID][iGUID] = entry
@@ -153,6 +163,6 @@ public:
     bool GetEnableSetInfo() const;
     uint32 GetSetNpcText() const;
 };
-#define sTransmogrification ACE_Singleton<Transmogrification, ACE_Null_Mutex>::instance()
+#define sTransmogrification Transmogrification::instance()
 
 #endif

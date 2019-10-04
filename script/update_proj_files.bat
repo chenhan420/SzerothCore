@@ -31,7 +31,7 @@ echo    ^<^/ProjectConfiguration^> & ^
 echo  ^<^/ItemGroup^> & ^
 echo  ^<PropertyGroup Label=^"Globals^"^> & ^
 echo  ^<Platform^>x64^<^/Platform^> & ^
-echo    ^<WindowsTargetPlatformVersion^>10.0.17134.0^<^/WindowsTargetPlatformVersion^> & ^
+echo    ^<WindowsTargetPlatformVersion^>10.0.17763.0^<^/WindowsTargetPlatformVersion^> & ^
 echo  ^<^/PropertyGroup^> & ^
 echo  ^<Import Project=^"$^(VCTargetsPath^)\Microsoft.Cpp.Default.props^" ^/^> & ^
 echo  ^<PropertyGroup Condition=^"^'$^(Configuration^)^|$^(Platform^)^'==^'RelWithDebInfo^|x64^'^" Label=^"Configuration^"^> & ^

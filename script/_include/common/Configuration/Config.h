@@ -67,6 +67,6 @@ private:
     LockType _configLock;
 };
 
-#define sConfigMgr getMgr<ConfigMgr>()
+#define sConfigMgr GetMgr<ConfigMgr>()
 
 #endif

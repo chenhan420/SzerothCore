@@ -93,6 +93,6 @@ class OutdoorPvPMgr
         uint32 m_UpdateTimer;
 };
 
-#define sOutdoorPvPMgr getMgr<OutdoorPvPMgr, ACE_Null_Mutex>()
+#define sOutdoorPvPMgr GetMgr<OutdoorPvPMgr, ACE_Null_Mutex>()
 
 #endif /*OUTDOOR_PVP_MGR_H_*/

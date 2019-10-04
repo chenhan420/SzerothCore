@@ -37,6 +37,6 @@ protected:
     GroupContainer   GroupStore;
 };
 
-#define sGroupMgr getMgr<GroupMgr, ACE_Null_Mutex>()
+#define sGroupMgr GetMgr<GroupMgr, ACE_Null_Mutex>()
 
 #endif

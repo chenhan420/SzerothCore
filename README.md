@@ -25,9 +25,9 @@ Based on Azerothcore v2.0.0 and authorized by saltyzero@foxmail.com I'm intended
 
 ## Steps:
 
->* Open the mysql service.
+>* Open your mysql service.
 
->* Import all sql within data folder and other script sql if you use it.
+>* Import all sql files within data folder and other script sql files if you use it.
 
 >* Set your server conf to connect to the mysql on it's port with default 3306.
 
@@ -56,4 +56,4 @@ Based on Azerothcore v2.0.0 and authorized by saltyzero@foxmail.com I'm intended
 1. 使用C++的接口重写脚本逻辑而不使用lua, 参考已有的幻化和世界聊天功能.  
 2. 更简洁的文件结构. 
 3. 动态热加载卸载dll动态链接库, 使用gm命令即可完成. 
-4. 使用命令行脚本一键创建新工程, 并且支持一键编译所有脚本, 我使用的是VS2017 SDK版本17134, 可根据需要自己修改.
+4. 使用命令行脚本一键创建新工程, 并且支持一键编译所有脚本, 我使用的是VS2017 SDK版本17763, 可根据需要自己修改.

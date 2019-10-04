@@ -62,6 +62,6 @@ class BattlefieldMgr
     uint32 m_UpdateTimer;
 };
 
-#define sBattlefieldMgr getMgr<BattlefieldMgr, ACE_Null_Mutex>()
+#define sBattlefieldMgr GetMgr<BattlefieldMgr, ACE_Null_Mutex>()
 
 #endif

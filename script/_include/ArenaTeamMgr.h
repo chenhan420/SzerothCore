@@ -43,6 +43,6 @@ protected:
     uint32 LastArenaLogId;
 };
 
-#define sArenaTeamMgr getMgr<ArenaTeamMgr, ACE_Null_Mutex>()
+#define sArenaTeamMgr GetMgr<ArenaTeamMgr, ACE_Null_Mutex>()
 
 #endif

@@ -87,7 +87,7 @@
 #define _extern _declspec(dllimport) extern
 #define _static _declspec(dllimport) static
 
-template<typename Ty, typename Mutex = ACE_Null_Mutex> _interface Ty * getMgr();
+template<typename Ty, typename Mutex = ACE_Null_Mutex> _interface Ty * GetMgr();
 
 #endif
 

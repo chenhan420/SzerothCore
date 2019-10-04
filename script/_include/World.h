@@ -887,6 +887,6 @@ class World
         std::string m_configFileList;
 };
 
-#define sWorld getMgr<World, ACE_Null_Mutex>()
+#define sWorld GetMgr<World, ACE_Null_Mutex>()
 #endif
 /// @}

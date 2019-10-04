@@ -10,7 +10,7 @@ Target Server Type    : MariaDB
 Target Server Version : 100406
 File Encoding         : 65001
 
-Date: 2019-08-12 17:47:51
+Date: 2019-09-29 13:09:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -97,6 +97,10 @@ INSERT INTO `item_instance` VALUES ('1110127', '前缀之', '之后缀', '1', '2
 INSERT INTO `item_instance` VALUES ('1110128', '前缀之', '之后缀', '1', '2.56762', '0', '1 0 2 ', '33 35 1 ', '50248 50248 50416 0 0 ');
 INSERT INTO `item_instance` VALUES ('1110130', '前缀之', '之后缀', '1', '2.54269', '0', '0 0 1 ', '43 40 30 ', '40733 40733 50416 0 0 ');
 INSERT INTO `item_instance` VALUES ('1110131', '前缀之', '之后缀', '1', '2.58478', '0', '2 1 1 ', '16 44 22 ', '40733 50197 50416 0 0 ');
+INSERT INTO `item_instance` VALUES ('1110138', '前缀之', '之后缀', '1', '97.9526', '0', '5 8 76 58 23 37 36 36 42 86 ', '3 7 45 31 26 2 37 6 14 47 ', '0 50197 40733 0 0 ');
+INSERT INTO `item_instance` VALUES ('1110193', '前缀之', '之后缀', '1', '102.414', '0', '5 8 36 26 35 49 29 40 66 77 ', '3 7 43 7 36 36 11 16 18 3 ', '0 50416 40733 0 0 ');
+INSERT INTO `item_instance` VALUES ('1110210', '前缀之', '之后缀', '1', '99.2492', '0', '5 8 32 49 55 87 35 43 71 14 ', '3 7 19 34 18 23 13 46 17 15 ', '0 40733 50416 0 0 ');
+INSERT INTO `item_instance` VALUES ('1110243', '前缀之', '之后缀', '1', '95.4551', '0', '5 8 29 58 54 38 44 58 67 72 ', '3 7 46 44 1 33 27 46 10 3 ', '0 50197 50416 0 0 ');
 
 -- ----------------------------
 -- Table structure for item_random
@@ -133,44 +137,54 @@ INSERT INTO `item_random` VALUES ('19019', '1', '2', '1', '0.1', '0.6', '-8', '0
 INSERT INTO `item_random` VALUES ('100000', '1', '2', '1', '0', '0', '0', '1', '1.2', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');
 
 -- ----------------------------
--- Table structure for map_custom
+-- Table structure for map_extra
 -- ----------------------------
-DROP TABLE IF EXISTS `map_custom`;
-CREATE TABLE `map_custom` (
-  `mapid` smallint(5) unsigned NOT NULL DEFAULT 0,
+DROP TABLE IF EXISTS `map_extra`;
+CREATE TABLE `map_extra` (
+  `mapid` smallint(5) NOT NULL DEFAULT 0,
   `difficulty` tinyint(3) unsigned NOT NULL DEFAULT 0,
-  `dmgDone` float unsigned NOT NULL DEFAULT 0,
-  `dmgTaken` float DEFAULT 0,
-  `hpRate` float DEFAULT 0,
-  `manaRate` float DEFAULT 0,
+  `dmgDone` float unsigned NOT NULL DEFAULT 1,
+  `dmgTaken` float unsigned NOT NULL DEFAULT 1,
+  `hpRate` float unsigned NOT NULL DEFAULT 1,
+  `manaRate` float unsigned NOT NULL DEFAULT 1,
   `rankLoot` text DEFAULT NULL COMMENT '0 1 2 3 4',
   `rankAura` text DEFAULT NULL COMMENT '0 1 2 3 4',
-  `itemEnchant` text DEFAULT NULL,
-  `playerAura` text DEFAULT NULL,
+  `itemEnchant` text DEFAULT NULL COMMENT '0 1 2 3 4 5 6 7',
+  `playerAura` mediumint(8) unsigned DEFAULT 0,
   PRIMARY KEY (`mapid`,`difficulty`),
   KEY `difficulty` (`difficulty`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of map_custom
+-- Records of map_extra
 -- ----------------------------
-INSERT INTO `map_custom` VALUES ('0', '0', '11.1', '22.2', '33.3', '44.4', '0普通 1精英 2稀有精英 3首领 4稀有', '同左', '0灰 1白 2绿 3蓝 4紫 5橙 6红 7金', '光环1 光环2 光环3');
-INSERT INTO `map_custom` VALUES ('1', '0', '11.1', '22.2', '33.3', '44.4', '0 0 0 0 0', '', '', '40733');
+INSERT INTO `map_extra` VALUES ('-1', '0', '1', '1', '1', '1', '0普通 1精英 2稀有精英 3首领 4稀有 5未知', '同左', '0灰 1白 2绿 3蓝 4紫 5橙 6红 7金', '0');
+INSERT INTO `map_extra` VALUES ('0', '0', '11.1', '22.2', '33.3', '44.4', '190011 0 0 0 0 0', '2 0 0 0 0 0', '0 4 0 0 0 4 0 0', '5');
+INSERT INTO `map_extra` VALUES ('1', '0', '11.1', '22.2', '33.3', '44.4', '190011 0 0 0 0 0', '3 0 0 0 0 0', '0 4 0 0 0 4 0 0', '5');
 
 -- ----------------------------
 -- Table structure for spell_group
 -- ----------------------------
 DROP TABLE IF EXISTS `spell_group`;
 CREATE TABLE `spell_group` (
+  `comment` text DEFAULT NULL,
   `id` mediumint(8) unsigned NOT NULL DEFAULT 0,
   `spell` mediumint(8) NOT NULL DEFAULT 0,
+  `chance` float unsigned NOT NULL DEFAULT 100,
   PRIMARY KEY (`id`,`spell`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of spell_group
 -- ----------------------------
-INSERT INTO `spell_group` VALUES ('1', '40733');
-INSERT INTO `spell_group` VALUES ('1', '50197');
-INSERT INTO `spell_group` VALUES ('1', '50248');
-INSERT INTO `spell_group` VALUES ('1', '50416');
+INSERT INTO `spell_group` VALUES ('{', '1', '40733', '100');
+INSERT INTO `spell_group` VALUES ('测试 风剑鉴定组', '1', '50197', '100');
+INSERT INTO `spell_group` VALUES ('测试 风剑鉴定组', '1', '50248', '100');
+INSERT INTO `spell_group` VALUES ('}', '1', '50416', '100');
+INSERT INTO `spell_group` VALUES ('测试 图0怪物光环', '2', '40999', '100');
+INSERT INTO `spell_group` VALUES ('测试 图0怪物光环', '2', '71110', '100');
+INSERT INTO `spell_group` VALUES ('测试 图1怪物光环', '3', '40999', '100');
+INSERT INTO `spell_group` VALUES ('测试 图1怪物光环', '3', '71110', '100');
+INSERT INTO `spell_group` VALUES ('测试 附魔组', '4', '2164', '50');
+INSERT INTO `spell_group` VALUES ('测试 附魔组', '4', '3879', '49.9');
+INSERT INTO `spell_group` VALUES ('测试 玩家光环', '5', '40999', '100');

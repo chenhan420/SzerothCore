@@ -1,5 +1,5 @@
 @echo off
-chcp 65001
+:: chcp 65001
 
 :: authorized by saltyzero@foxmail.com
 :: VS141(VS2017) RelWithDebInfo x64
@@ -11,6 +11,11 @@ echo please input a script name or * for all scripts
 set /p name=
 ) else (
 echo %1
+)
+
+if "%name%"=="" (
+set name=*
+echo *
 )
 
 if "%name%"=="*" (

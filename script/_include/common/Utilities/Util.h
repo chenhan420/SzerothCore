@@ -66,7 +66,7 @@ std::string TimeToTimestampStr(time_t t);
 /* Return a random number in the range min..max. */
 int32 irand(int32 min, int32 max);
 
-/* Return a random number in the range min..max (inclusive). */
+/* Return a random number in the range min..max [inclusive]. */
 uint32 urand(uint32 min, uint32 max);
 
 /* Return a random number in the range 0 .. UINT32_MAX. */
@@ -75,19 +75,19 @@ uint32 rand32();
 /* Return a random number in the range min..max */
 float frand(float min, float max);
 
-/* Return a random double from 0.0 to 1.0 (exclusive). */
+/* Return a random double from 0.0 to 1.0 [exclusive). */
 double rand_norm();
 
-/* Return a random double from 0.0 to 100.0 (exclusive). */
+/* Return a random double from 0.0 to 100.0 [exclusive). */
 double rand_chance();
 
-/* Return true if a random roll fits in the specified chance (range 0-100). */
+/* Return true if a random roll fits in the specified chance [range 0-100). */
 _inline bool roll_chance_f(float chance)
 {
     return chance > rand_chance();
 }
 
-/* Return true if a random roll fits in the specified chance (range 0-100). */
+/* Return true if a random roll fits in the specified chance [range 0-100). */
 inline bool roll_chance_i(int32 chance)
 {
     return chance > irand(0, 99);
@@ -958,4 +958,11 @@ template <class Ty> std::string Vec2Str(std::vector<Ty> vec, const char* split =
 	return ss.str();
 }
 
+template <class Ty> std::string Arr2Str(Ty* src, size_t size, const char* split = " ")
+{
+	std::stringstream ss;
+	std::copy(&src[0], &src[size], std::ostream_iterator<Ty>(ss, " "));
+
+	return ss.str();
+}
 #endif

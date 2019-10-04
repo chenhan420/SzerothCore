@@ -1136,7 +1136,7 @@ class ModuleScript : public ScriptObject
 };
 
 // Placed here due to ScriptRegistry::AddScript dependency.
-#define sScriptMgr getMgr<ScriptMgr, ACE_Null_Mutex>()
+#define sScriptMgr GetMgr<ScriptMgr, ACE_Null_Mutex>()
 
 // Manages registration, loading, and execution of scripts.
 class ScriptMgr
