@@ -19,7 +19,7 @@ class Field
 
     public:
 
-        template<class T> T GetValue() const
+        template<class T, typename Cond = void> T GetValue() const
         {
             if (!data.value)
                 return 0;
@@ -33,12 +33,12 @@ class Field
             return static_cast<T>(atol((char*)data.value));
         }
 
-        template<> bool GetValue<bool>() const
+        template<> bool GetValue<bool, void>() const
         {
             return GetValue<uint8>() == 1 ? true : false;
         }
 
-        template<> int64 GetValue<int64>() const
+        template<> int64 GetValue<int64, void>() const
         {
             if (!data.value)
                 return 0;
@@ -63,13 +63,13 @@ class Field
         }
 #endif
 
-        template<> float GetValue<float>() const
+        template<class T, typename std::enable_if<std::is_floating_point<T>::value>::type> T GetValue() const
         {
             if (!data.value)
                 return 0.0f;
 
             #ifdef TRINITY_DEBUG
-            if (!IsType(MYSQL_TYPE_FLOAT))
+            if (!IsType(MYSQL_TYPE_FLOAT) || !IsType(MYSQL_TYPE_DOUBLE))
             {
                 sLog->outSQLDriver("Warning: GetFloat() on non-float field. Using type: %s.", FieldTypeToString(data.type));
                 return 0.0f;
@@ -77,29 +77,11 @@ class Field
             #endif
 
             if (data.raw)
-                return *reinterpret_cast<float*>(data.value);
-            return static_cast<float>(atof((char*)data.value));
+                return *reinterpret_cast<T*>(data.value);
+            return static_cast<T>(atof((char*)data.value));
         }
 
-        template<> double GetValue<double>() const
-        {
-            if (!data.value)
-                return 0.0f;
-
-            #ifdef TRINITY_DEBUG
-            if (!IsType(MYSQL_TYPE_DOUBLE))
-            {
-                sLog->outSQLDriver("Warning: GetDouble() on non-double field. Using type: %s.", FieldTypeToString(data.type));
-                return 0.0f;
-            }
-            #endif
-
-            if (data.raw)
-                return *reinterpret_cast<double*>(data.value);
-            return static_cast<double>(atof((char*)data.value));
-        }
-
-        template<> CString GetValue<CString>() const
+        template<> CString GetValue<CString, void>() const
         {
             if (!data.value)
                 return NULL;
@@ -114,7 +96,7 @@ class Field
             return static_cast<char const*>(data.value);
         }
 
-        template<> std::string GetValue<std::string>() const
+        template<> std::string GetValue<std::string, void>() const
         {
             if (!data.value)
                 return "";
