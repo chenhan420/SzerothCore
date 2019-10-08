@@ -76,18 +76,15 @@ public:
 		//	return right;
 		//});
 
-		sLog->outString("等前");
 		//right.wait();
 		//
 		//if (right.get() == -1)
 		//	return false;
 
-		//if (system(cmd.c_str()) == -1)
-		//	return false;
+		if (system(cmd.c_str()) == -1)
+			return false;
 
-		sLog->outString("等后");
-		//return sScriptMgr->LoadScript(args);
-		return true;
+		return sScriptMgr->LoadScript(args);
 	}
 
 	static bool HandleFreeDLLCommand(ChatHandler* handler, char const*  args)
