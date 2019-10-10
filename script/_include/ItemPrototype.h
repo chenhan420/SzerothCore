@@ -579,6 +579,7 @@ struct _Socket
 #define MAX_ITEM_PROTO_SPELLS  5
 #define MAX_ITEM_PROTO_STATS  10
 
+#define IsEquipment(proto) (proto->Class == ITEM_CLASS_ARMOR || proto->Class == ITEM_CLASS_WEAPON)
 struct ItemTemplate
 {
     uint32 ItemId;

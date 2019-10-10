@@ -212,4 +212,6 @@ typedef std::vector<std::string> StringVector;
   ACE_Read_Guard< MUTEX > TRINITY_GUARD_OBJECT (LOCK); \
     if (TRINITY_GUARD_OBJECT.locked() == 0) ASSERT(false);
 
+_extern uint32 default_ref;
+#define _DREF_ default_ref
 #endif

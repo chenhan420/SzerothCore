@@ -13,6 +13,7 @@
 #include <ace/Basic_Types.h>
 #include <ace/ACE_export.h>
 #include <ace/Default_Constants.h>
+#include "ace/Null_Mutex.h"
 
 #include "CompilerDefs.h"
 
@@ -79,6 +80,7 @@
 
  // authorized by saltyzero@foxmail.com
 #define _for(i, start, end) for(auto i = start; i != end; i++)
+#define _if _for(ii, 0, 1) if
 
 #ifndef _module
 

@@ -25,6 +25,7 @@ class ZoneScript
         virtual void OnCreatureRemove(Creature *) { }
 
         virtual void OnGameObjectCreate(GameObject *) { }
+        virtual void OnGameObjectStateChanged(GameObject *) { }
         virtual void OnGameObjectRemove(GameObject *) { }
 
         virtual void OnUnitDeath(Unit*) { }
