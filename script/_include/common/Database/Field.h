@@ -19,7 +19,7 @@ class Field
 
     public:
 
-        template<class T, typename Cond = void> T GetValue() const
+        template<class T, typename Cond = void> typename std::enable_if<!std::is_floating_point<T>::value, T>::type GetValue() const
         {
             if (!data.value)
                 return 0;
@@ -63,7 +63,7 @@ class Field
         }
 #endif
 
-        template<class T, typename std::enable_if<std::is_floating_point<T>::value>::type> T GetValue() const
+        template<class T> typename std::enable_if<std::is_floating_point<T>::value, T>::type GetValue() const
         {
             if (!data.value)
                 return 0.0f;
