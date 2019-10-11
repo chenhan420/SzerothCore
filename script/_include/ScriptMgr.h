@@ -1,3 +1,4 @@
+// 微软sb
 /*
  * Copyright (C) 2016+     AzerothCore <www.azerothcore.org>, released under GNU GPL v2 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-GPL2
  * Copyright (C) 2008-2016 TrinityCore <http://www.trinitycore.org/>
@@ -268,6 +269,10 @@ class WorldScript : public ScriptObject
 
         // Called when the world is actually shut down.
         virtual void OnShutdown() { }
+
+		// saltyzero: GameEventAPI 事件接口
+		virtual void OnGameEventStart(uint16 event_id) { }
+		virtual void OnGameEventStop(uint16 event_id) { }
 };
 
 class FormulaScript : public ScriptObject
@@ -417,6 +422,8 @@ class ItemScript : public ScriptObject
 
         // Called when a player accepts a quest from the item.
         virtual bool OnQuestAccept(Player* /*player*/, Item* /*item*/, Quest const* /*quest*/) { return false; }
+
+		virtual void OnStore(Item* item, Player* player, uint32 &ret) { ret = 0; }
 
         // Called when a player uses the item.
         virtual bool OnUse(Player* /*player*/, Item* /*item*/, SpellCastTargets const& /*targets*/) { return false; }
@@ -915,7 +922,7 @@ class PlayerScript : public ScriptObject
         virtual void OnAfterMoveItemFromInventory(Player* /*player*/, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) { }
 
 		// Before item equiped
-		virtual void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret, bool update) { }
+		virtual void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret, bool update) { ret = 0; }
 
 		// After an item has been equipped
 		virtual void OnEquip(Player* /*player*/, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) { }
@@ -924,7 +931,7 @@ class PlayerScript : public ScriptObject
 		virtual void OnRemoveEquip(Player*, Item*, uint8 slot, bool remove, bool update) { }
 
 		// After mouse hover on item
-		virtual void OnQueryItem(Player* /*player*/, uint32 /*guid*/, uint32 &ret) { }
+		virtual void OnQueryItem(Player* /*player*/, uint32 /*guid*/, uint32 &ret) { ret = 0; }
 
         // After player enters queue for BG
         virtual void OnPlayerJoinBG(Player* /*player*/) { }
@@ -1197,6 +1204,8 @@ class ScriptMgr
         void OnWorldUpdate(uint32 diff);
         void OnStartup();
         void OnShutdown();
+		void OnGameEventStart(uint16 event_id);
+		void OnGameEventStop(uint16 event_id);
 
     public: /* FormulaScript */
 
@@ -1226,6 +1235,7 @@ class ScriptMgr
     public: /* ItemScript */
 
         bool OnQuestAccept(Player* player, Item* item, Quest const* quest);
+		void OnItemStore(Item* item, Player* player, uint32 &ret = _DREF_);
         bool OnItemUse(Player* player, Item* item, SpellCastTargets const& targets);
         bool OnItemExpire(Player* player, ItemTemplate const* proto);
         bool OnItemRemove(Player* player, Item* item);
@@ -1367,10 +1377,10 @@ class ScriptMgr
         void OnPlayerBeingCharmed(Player* player, Unit* charmer, uint32 oldFactionId, uint32 newFactionId);
         void OnAfterPlayerSetVisibleItemSlot(Player* player, uint8 slot, Item *item);
         void OnAfterPlayerMoveItemFromInventory(Player* player, Item* it, uint8 bag, uint8 slot, bool update);
-		void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret, bool update);
+		void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret = _DREF_, bool update = true);
 		void OnEquip(Player* player, Item* it, uint8 bag, uint8 slot, bool update);
 		void OnRemoveEquip(Player* player, Item* it, uint8 slot, bool remove, bool update);
-		void OnQueryItem(Player* player, uint32 guid, uint32 &ret);
+		void OnQueryItem(Player* player, uint32 guid, uint32 &ret = _DREF_);
         void OnPlayerJoinBG(Player* player);
         void OnPlayerJoinArena(Player* player);
         void OnLootItem(Player* player, Item* item, uint32 count, uint64 lootguid);
