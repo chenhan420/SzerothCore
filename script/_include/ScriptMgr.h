@@ -423,7 +423,7 @@ class ItemScript : public ScriptObject
         // Called when a player accepts a quest from the item.
         virtual bool OnQuestAccept(Player* /*player*/, Item* /*item*/, Quest const* /*quest*/) { return false; }
 
-		virtual void OnStore(Item* item, Player* player, uint32 &ret) { ret = 0; }
+		virtual void OnStore(Item* item, Player* player, uint32 &ret) {}
 
         // Called when a player uses the item.
         virtual bool OnUse(Player* /*player*/, Item* /*item*/, SpellCastTargets const& /*targets*/) { return false; }
@@ -922,7 +922,7 @@ class PlayerScript : public ScriptObject
         virtual void OnAfterMoveItemFromInventory(Player* /*player*/, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) { }
 
 		// Before item equiped
-		virtual void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret, bool update) { ret = 0; }
+		virtual void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret, bool update) {}
 
 		// After an item has been equipped
 		virtual void OnEquip(Player* /*player*/, Item* /*it*/, uint8 /*bag*/, uint8 /*slot*/, bool /*update*/) { }
@@ -931,7 +931,7 @@ class PlayerScript : public ScriptObject
 		virtual void OnRemoveEquip(Player*, Item*, uint8 slot, bool remove, bool update) { }
 
 		// After mouse hover on item
-		virtual void OnQueryItem(Player* /*player*/, uint32 /*guid*/, uint32 &ret) { ret = 0; }
+		virtual void OnQueryItem(Player* /*player*/, uint32 /*guid*/, uint32 &ret) {}
 
         // After player enters queue for BG
         virtual void OnPlayerJoinBG(Player* /*player*/) { }
