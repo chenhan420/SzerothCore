@@ -6,14 +6,14 @@ Based on Azerothcore v2.0.0 and authorized by saltyzero@foxmail.com I'm intended
 >* Some private codes will be just obtained from contributions, but free to use all functions.
 
 ## Upcoming:   
->* v1.3 will add some playable functions.
+>* v1.5 will fix more origin dungeons.
 
 ## Features:  
 >* Use game APIs with C++ rather than Eluna to override your own scripts just like it in demo project [transmog] or [world_chat].
    
 >* More brief file structure.
    
->* Dynamic hot loading or freeing scrit dll with GM cmd .script load xxx / .script free xxx. It's a so powerful function.
+>* Dynamic hot loading or freeing script dll with GM cmd .script load xxx / .script free xxx. It's a so powerful function.
     
 >* Use the cmd [create_new_script] to create a new scirpt project with the default configuration [RelWithDebInfo|Win32]. Now you can build all script with cmd [build_all].
 
