@@ -1,4 +1,4 @@
-﻿@echo off
+@echo off
 chcp 65001
 :: authorized by saltyzero@foxmail.com
 :: VS141 RelWithDebInfo x64
@@ -6,7 +6,7 @@ chcp 65001
 set name=%1
 
 if "%name%"=="" (
-echo "please input a script name:"
+echo please input a script name:
 set /p name=
 ) else (
 echo %1
