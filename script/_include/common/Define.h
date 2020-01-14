@@ -19,6 +19,13 @@
 
 #if defined(_WIN32) || defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__) || defined(__BORLANDC__)
 #define OS_WIN
+
+#ifdef WINVER
+#define _MS_EXPAND(MACRO) MACRO
+#else
+#define _MS_EXPAND
+#endif
+
 #endif
 
 #define TRINITY_LITTLEENDIAN 0
@@ -89,7 +96,7 @@
 #define _extern _declspec(dllimport) extern
 #define _static _declspec(dllimport) static
 
-template<typename Ty, typename Mutex = ACE_Null_Mutex> _interface Ty * GetMgr();
+template<typename Ty, typename Mutex = ACE_Null_Mutex> inline _interface Ty * GetMgr();
 
 #endif
 

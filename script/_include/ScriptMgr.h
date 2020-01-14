@@ -931,7 +931,7 @@ class PlayerScript : public ScriptObject
 		virtual void OnRemoveEquip(Player*, Item*, uint8 slot, bool remove, bool update) { }
 
 		// After mouse hover on item
-		virtual void OnQueryItem(Player* /*player*/, uint32 /*guid*/, uint32 &ret) {}
+		virtual void OnQueryItem(Player* /*player*/, uint32 /*entry*/, uint32 &ret) {}
 
         // After player enters queue for BG
         virtual void OnPlayerJoinBG(Player* /*player*/) { }
@@ -1380,7 +1380,7 @@ class ScriptMgr
 		void OnBeforeEquip(Player* player, Item* it, uint8 bag, uint8 slot, uint32 &ret = _DREF_, bool update = true);
 		void OnEquip(Player* player, Item* it, uint8 bag, uint8 slot, bool update);
 		void OnRemoveEquip(Player* player, Item* it, uint8 slot, bool remove, bool update);
-		void OnQueryItem(Player* player, uint32 guid, uint32 &ret = _DREF_);
+		void OnQueryItem(Player* player, uint32 entry, uint32 &ret = _DREF_);
         void OnPlayerJoinBG(Player* player);
         void OnPlayerJoinArena(Player* player);
         void OnLootItem(Player* player, Item* item, uint32 count, uint64 lootguid);
